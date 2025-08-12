@@ -295,13 +295,13 @@ function iniciarJogo() {
 
   // Imagens dos personagens
   const playerImg = new Image();
-  playerImg.src = "OUTLINE/MiniNobleMan.png";
+  playerImg.src = "Outline/MiniNobleMan.png";
 
   const bots = [
-    "OUTLINE/MiniPeasant.png",
-    "OUTLINE/MiniWorker.png",
-    "OUTLINE/MiniVillagerWoman.png",
-    "OUTLINE/MiniVillagerMan.png"
+    "Outline/MiniPeasant.png",
+    "Outline/MiniWorker.png",
+    "Outline/MiniVillagerWoman.png",
+    "Outline/MiniVillagerMan.png"
   ];
   const botImg = new Image();
   botImg.src = bots[Math.floor(Math.random() * bots.length)];
@@ -697,3 +697,4 @@ document.addEventListener("click", (e) => {
     iniciarJogo();
   }
 });
+
