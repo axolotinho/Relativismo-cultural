@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNA Animation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+</head>
+<body>
+  <div id="dnaf"></div>
+  <div class="stars" id="stars"></div>
+
+  <div class="moldura">
+    <h1>Relativismo Cultural:<br> Um olhar para a idade média</h1>
+    <button class="btn-acao" id="btnAcao">Começar</button>
+  </div>
+
+  <div class="creditos">
+    <span>Davi Freitas</span><span>Rômulo Mendonça</span>
+    <span>Leandro</span><span>Lian William</span>
+    <span>Pedro Minarini</span><span>Lucas</span>
+    <span>Júlio Cesar</span>
+  </div>
+
+  <div id="game-container" style="display: none;">
+    <canvas id="game-canvas"></canvas>
+    <div class="dialogo" id="dialogo">Texto do diálogo</div>
+    <div class="regras" id="regras">Regras do jogo</div>
+  </div>
+
+  <script src="intro.js"></script>
+  <script src="game.js"></script>
+  <script src="fim.js"></script>
+  <script>
+    const starsContainer = document.getElementById('stars');
+    const numStars = 50;
+
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      const size = Math.random() * 3 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.animationDelay = (Math.random() * 2) + 's';
+      star.style.animationDuration = (2 + Math.random() * 2) + 's';
+      starsContainer.appendChild(star);
+    }
+
+    const dnaf = document.getElementById('dnaf');
+    const larguraBarra = 4;
+    const margem = 30;
+    const colunaLargura = larguraBarra + margem;
+
+    function criarColunas() {
+      dnaf.innerHTML = '';
+      const colunas = Math.ceil(window.innerWidth / colunaLargura);
+      for (let i = 0; i < colunas; i++) {
+        const div = document.createElement('div');
+        const delay = (-55.5 - i * 0.15).toFixed(2) + 's';
+        div.style.setProperty('--delay', delay);
+        dnaf.appendChild(div);
+      }
+    }
+
+    criarColunas();
+    window.addEventListener('resize', criarColunas);
+  </script>
+</body>
+</html>

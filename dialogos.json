@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "npc": "Taverneiro",
+    "npcDialog": "Aqui a cerveja é feita com o melhor malte da região. Muitos dizem que não há nada igual além do rio.",
+    "regra": "",
+    "respostas": [
+      {
+        "texto": "Já provei cervejas de muitos lugares, mas essa tem um gosto especial.",
+        "tipo": "correta",
+        "npcResposta": "Fico feliz que goste. É segredo da família há gerações."
+      },
+      {
+        "texto": "Nunca fui muito de beber, prefiro vinho ou hidromel.",
+        "tipo": "duvidosa",
+        "npcResposta": "Cada um com seu gosto, mas aqui a cerveja une as pessoas."
+      },
+      {
+        "texto": "Gosto mais dos sabores que se encontram na cidade, acho que aqui é meio simples.",
+        "tipo": "errada",
+        "npcResposta": "A cidade tem suas belezas, mas não subestime o coração do campo."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "npc": "Morador da vila",
+    "npcDialog": "A água desta fonte é pura e traz proteção à nossa aldeia. Sempre a tratamos com cuidado e respeito.",
+    "regra": "",
+    "respostas": [
+      {
+        "texto": "Sei que essa fonte é importante para vocês e também respeito isso.",
+        "tipo": "correta",
+        "npcResposta": "Suas palavras mostram um coração aberto. Fico feliz."
+      },
+      {
+        "texto": "Nunca pensei muito nisso, mas imagino que a água seja boa.",
+        "tipo": "duvidosa",
+        "npcResposta": "Ao menos reconhece o valor que damos a ela."
+      },
+      {
+        "texto": "Para mim, água é só água — não entendo essa veneração toda.",
+        "tipo": "errada",
+        "npcResposta": "A água pode parecer comum, mas para nós é a vida que corre em nossas veias."
+      }
+    ]
+  },
+  {
+  "id": 3,
+  "npc": "Ancião sentado no banco da praça",
+  "npcDialog": "Vejo que a juventude anda inquieta, mas aprenda que o silêncio diante dos mais velhos é sinal de respeito.",
+  "regra": "Na vila, é esperado que os mais jovens não contradigam diretamente os mais velhos, principalmente em público.",
+  "respostas": [
+    {
+      "texto": "Entendo a importância do respeito aos mais velhos e ouvirei com atenção.",
+      "tipo": "correta",
+      "npcResposta": "É bom ver que as tradições ainda vivem no coração dos jovens."
+    },
+    {
+      "texto": "Às vezes é difícil conter a vontade de falar, mas tentarei ser mais paciente.",
+      "tipo": "duvidosa",
+      "npcResposta": "A paciência é uma virtude que poucos dominam, mas é um bom começo."
+    },
+    {
+      "texto": "Não acho que o silêncio seja necessário; todos deveriam expressar suas opiniões livremente.",
+      "tipo": "errada",
+      "npcResposta": "Palavras assim podem causar discórdia onde deveria haver harmonia."
+    }
+  ]
+    },
+    {
+  "id": 4,
+  "npc": "Morador local",
+  "npcDialog": "Por aqui, os grilos assados são uma iguaria que sustenta muitos durante o verão.",
+  "regra": "Na vila, é comum consumir insetos como fonte de alimento, e rejeitar isso pode ser visto como estranhamento ou falta de adaptação.",
+  "respostas": [
+    {
+      "texto": "Nunca experimentei, mas estou aberto a provar essas comidas diferentes.",
+      "tipo": "correta",
+      "npcResposta": "Boa atitude! Quem se adapta vive melhor aqui."
+    },
+    {
+      "texto": "Já ouvi falar, mas acho difícil me acostumar com isso.",
+      "tipo": "duvidosa",
+      "npcResposta": "Entendo, nem todos se acostumam facilmente, mas é importante tentar."
+    },
+    {
+      "texto": "Comer insetos? Prefiro não tocar nisso.",
+      "tipo": "errada",
+      "npcResposta": "É uma tradição que ajuda a manter nossa gente forte, não rejeite assim."
+    }
+  ]
+    },
+    {
+  "id": 5,
+  "npc": "Morador da vila",
+  "npcDialog": "Hoje preparei uma mistura especial de grilos assados para o jantar. Venha compartilhar conosco.",
+  "regra": "Na vila, consumir insetos é um costume nutritivo e valorizado. Na vila, é considerado deselegante recusar um convite para comer junto com os outros.",
+  "respostas": [
+    {
+      "texto": "Obrigado, aceito experimentar essa comida tão importante para vocês.",
+      "tipo": "correta",
+      "npcResposta": "Fico feliz que queira participar. Isso fortalece nossos laços."
+    },
+    {
+      "texto": "Talvez eu experimente, mas não sei se vou gostar muito.",
+      "tipo": "duvidosa",
+      "npcResposta": "É bom ver abertura, mesmo com alguma dúvida."
+    },
+    {
+      "texto": "Prefiro não comer isso, obrigado.",
+      "tipo": "errada",
+      "npcResposta": "Recusar o convite pode parecer falta de respeito entre nós."
+    }
+  ]
+    },
+{
+  "id": 6,
+  "npc": "Camponês na plantação",
+  "npcDialog": "Durante a colheita, mantemos silêncio para que todos possam se concentrar. Além disso, cada um deve ajudar, seja forte ou fraco.",
+  "regra": "Na vila, é costume não fazer barulho durante a colheita para respeitar o trabalho coletivo. Também é tradição que todos ajudem na colheita, ninguém deve se omitir.",
+  "respostas": [
+    {
+      "texto": "Entendo, o silêncio ajuda na concentração e ninguém deve fugir do trabalho.",
+      "tipo": "correta",
+      "npcResposta": "Assim é que se mantém a harmonia da colheita."
+    },
+    {
+      "texto": "Às vezes o silêncio é difícil, mas vou tentar respeitar. Sobre ajudar, nem sempre sei se posso contribuir muito.",
+      "tipo": "duvidosa",
+      "npcResposta": "A vontade já conta, o resto se aprende com o tempo."
+    },
+    {
+      "texto": "Não vejo problema em conversar enquanto trabalho, e não me sinto obrigado a ajudar sempre.",
+      "tipo": "errada",
+      "npcResposta": "Falar demais e não ajudar só atrapalha quem confia no esforço comum."
+    }
+  ]
+}
+
+
+
+]

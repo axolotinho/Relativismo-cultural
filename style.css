@@ -1,0 +1,324 @@
+@font-face {
+  font-family: MinhaFonte;
+  src: url('FuturaHandwritten.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'MinhaFonte', sans-serif;
+}
+
+/* Fundo com leve gradiente */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.85) 100%);
+  z-index: 0;
+}
+
+/* Moldura */
+.moldura {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  max-width: 700px;
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-out 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transition: transform 1s ease, padding 1s ease, max-width 1s ease, backdrop-filter 1s ease;
+}
+
+.moldura h1 {
+  font-size: 2.8rem;
+  font-weight: normal;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+.moldura p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Botão pastel */
+.btn-acao, .btn-continuar {
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  background: linear-gradient(135deg, #a8dadc, #f1faee);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #a8dadcaa;
+  transition: background 0.3s ease, box-shadow 0.3s ease, top 0.6s ease;
+  font-family: 'MinhaFonte', sans-serif;
+}
+
+.btn-acao:hover, .btn-continuar:hover {
+  background: linear-gradient(135deg, #90c9ca, #d9f0ea);
+  box-shadow: 0 0 20px #90c9caaa;
+}
+
+.btn-acao:active, .btn-continuar:active {
+  background: linear-gradient(135deg, #6ba7a7, #b0d6c9);
+  box-shadow: 0 0 8px #6ba7a799;
+}
+
+/* Estrelas */
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+  animation: blink 2s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* DNA */
+#dnaf {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 240px;
+  margin-top: -120px;
+  white-space: nowrap;
+  perspective: 1000px;
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#dnaf div {
+  display: inline-block;
+  position: relative;
+  top: 10%;
+  width: 4px;
+  height: 300px;
+  margin-top: -80px;
+  background: linear-gradient(to bottom, #00f, #0ff);
+  margin-left: 30px;
+  transform-style: preserve-3d;
+  animation: rotation 6s linear infinite;
+  animation-delay: var(--delay);
+}
+
+#dnaf div::before,
+#dnaf div::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: rotation 6s linear infinite reverse;
+  animation-delay: var(--delay);
+}
+
+#dnaf div:nth-child(even)::before { background-color: #ff4d4d; }
+#dnaf div:nth-child(odd)::before { background-color: #4dff4d; }
+#dnaf div:nth-child(even)::after { background-color: #4dff4d; }
+#dnaf div:nth-child(odd)::after { background-color: #ff4d4d; }
+
+@keyframes rotation {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(359deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Créditos */
+.creditos {
+  position: fixed;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'MinhaFonte', sans-serif;
+  z-index: 3;
+  user-select: none;
+}
+
+.creditos span + span::before {
+  content: " | ";
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Estados animados intro */
+.dna-sair {
+  opacity: 0;
+  transform: translateY(-50px) scale(0.8);
+}
+
+.moldura-expandir {
+  transform: scale(1.2);
+  max-width: 900px;
+  padding: 60px;
+}
+
+.moldura-blur {
+  backdrop-filter: blur(16px);
+}
+
+.sumir-texto {
+  opacity: 0;
+}
+
+.botao-baixo {
+  top: 50px;
+  position: relative;
+  transition: top 0.6s ease;
+}
+
+/* -------- GAME.JS -------- */
+
+/* Moldura desaparecendo no game */
+.moldura-fullscreen {
+  transform: scale(1.5);
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  backdrop-filter: blur(3px);
+  background: rgba(0,0,0,0.4);
+}
+
+/* Área de diálogo */
+.dialogo {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 15px 20px;
+  color: white;
+  font-size: 1.2rem;
+  max-width: 80%;
+  backdrop-filter: blur(8px);
+}
+
+/* Área de regras */
+.regras {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 0.9rem;
+  max-width: 200px;
+  backdrop-filter: blur(8px);
+}
+
+/* Sprites dos personagens */
+#game-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-canvas {
+    background: transparent;
+}
+
+.dialogo-box {
+    position: absolute;
+    top: 20px;
+    background: rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 12px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1.1rem;
+    max-width: 60%;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
+
+.regras-box {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    background: rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 0.95rem;
+    max-width: 200px;
+    backdrop-filter: blur(4px);
+}
+
+.balao {
+  max-width: 200px; /* limite horizontal */
+  word-wrap: break-word; /* quebra palavras grandes */
+  white-space: pre-wrap; /* mantém espaços e permite quebras */
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff;
+  display: inline-block;
+  position: relative;
+  transform-origin: bottom; /* para crescer para cima */
+}
+
+.container-falas {
+  display: flex;
+  flex-direction: column-reverse;
+}
